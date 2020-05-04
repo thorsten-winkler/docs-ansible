@@ -32,8 +32,8 @@ Dependencies to other roles defined in
 ```
 ### Plugins:
 - Lookup plugins:
-    - https://docs.ansible.com/ansible/latest/plugins/lookup.html
-    - Get list of available plugins:\
+  - https://docs.ansible.com/ansible/latest/plugins/lookup.html
+  - Get list of available plugins:\
     `$ ansible-doc -t lookup -l`
 - List of plugin types (and therefore directory names for development)
   - https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html#adding-a-plugin-locally
