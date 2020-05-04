@@ -25,7 +25,9 @@ $ ansible-inventory -i hosts --list
 ```
 
 ### Roles:
-Dependencies to other roles defined in
+- Role directory structure
+  - https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+- Dependencies to other roles defined in
 ```
 # cat <path-to-roles>/<role_name>/meta/main.yml:
 - dependencies: []
