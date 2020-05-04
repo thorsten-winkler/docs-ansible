@@ -58,7 +58,7 @@ Dependencies to other roles defined in
   ```
 
 ### List installed ansible roles
-`$ ansible-galaxy list`
+- `$ ansible-galaxy list`
 
 ### Download ansible roles from different sources
 - https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html?highlight=role#installing-roles
