@@ -1,3 +1,10 @@
+# Ignore:
+
+# MacOSX files
+*.DS_Store
+# Virtual environment for ansible
 venv*
+# Roles & playbooks (system-setups) have their own repository
 roles*
 playbooks*
+system-setups*
