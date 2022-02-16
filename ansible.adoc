@@ -2,39 +2,54 @@
 :author: Thorsten Winkler
 :email: thorsten.winkler@de.ibm.com
 :revdate: {docdate}
-:revnumber: 1
-:revremark: The spring incarnation of {doctitle}
+:revnumber: 0.1
+:revremark: Remark {revnumber}
 :version-label: Version
 :toc:
 :toclevels: 4
+:toc-title: Table of Contents
 :sectnums: |,all|
-:source-highlighter: pygments
-:pygments-linenums-mode: inline
-:pygments-style: inkpot
+//:source-highlighter: pygments
+//:pygments-style: material
+//:pygments-css: class
+//:pygments-linenums-mode: table
+//:source-highlighter: highlight.js
+//:highlightjs-theme: base16/gruvbox-dark-pale
+//:highlightjsdir: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0
 
-Version is {revision}
-My name is {myname}
-Docdate {docdate}
+
+== Ansible
+
+=== Installation
+
+==== Global installation
+
+ $ test
 
 
-== Ansible ecosystem - Information, tips, best practices
+.Optional Title
+****
+Sidebars are used to visually separate auxiliary bits of content
+that supplement the main text.
+****
 
-=== Ansible
+TIP: Test
 
-==== Installation
-
-===== Global installation
-
-[source, bash, linenums]
+.Optional Title
+[source, bash]
 ----
+#!/bin/bash
 # Ansible installation
 pip install ansible
 
 # Ansible upgrade
 pip install --upgrade ansible
+if [[ $UID -eq 1]]
+then
+fi
 ----
 
-===== Local installation
+==== Local installation
 
 [source, bash, linenums]
 ----
@@ -181,21 +196,27 @@ ansible-inventory -i hosts --list
 
 ## Useful links/information/discussions/questions/decisions
 
-- Turorials:
-  - https://www.informatik-aktuell.de/entwicklung/programmiersprachen/einfuehrung-in-ansible.html
-- Best Practices:
-  - https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html
-- YAML Syntax:
-  - https://yaml.org/refcard.html
-  - https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
-- Ansible lookups: vars vs. facts
-  - https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+* Turorials:
+** https://www.informatik-aktuell.de/entwicklung/programmiersprachen/einfuehrung-in-ansible.html
 
-[vars_vs_facts]: https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html 
-  
-## References
+* Best Practices:
+** https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html
 
-- Ansible Docs - https://docs.ansible.com/
+* YAML Syntax:
+** https://yaml.org/refcard.html
+** https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+
+* Ansible lookups: vars vs. facts
+** https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+
+* vars_vs_facts.footnote:iwas[https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html]: https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+
+* vars_vs_facts.footnote:iwas[]: https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+
+[bibliography]
+== References
+
+* [[[ad,ansible-docs]]] Ansible Docs - https://docs.ansible.com/
 - Ansible Galaxy Docs - https://galaxy.ansible.com/docs/
 - Ansible Galaxy User Guide - https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
 - Molecule - Ansible Testing - https://molecule.readthedocs.io
