@@ -49,6 +49,21 @@ then
 fi
 ----
 
+.dasda
+==========================
+*Example* Block
+
+Use: examples :)
+
+Default caption "Example:"
+can be changed using
+
+ [caption="Custom: "]
+
+before example block.
+==========================
+
+
 ==== Local installation
 
 [source, bash, linenums]
