@@ -5,7 +5,7 @@
 :revnumber: 0.1
 :revremark: Remark {revnumber}
 :version-label: Version
-:toc:
+:toc: right
 :toclevels: 4
 :toc-title: Table of Contents
 :sectnums: |,all|
