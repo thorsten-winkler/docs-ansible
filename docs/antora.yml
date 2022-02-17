@@ -1,6 +1,6 @@
 name: docs-ansible
-title: Docs
-version: 2.5-tw
+title: Ansible Docs Repository
+version: new-tw-version.2.5
 prerelease: -beta.1-tw
 nav:
 - modules/ROOT/nav.adoc
