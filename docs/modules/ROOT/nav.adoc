@@ -1,1 +1,1 @@
-
+* xref:test.adoc[]
