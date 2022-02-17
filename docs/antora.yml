@@ -4,4 +4,3 @@ version: 2.5-tw
 prerelease: -beta.1-tw
 nav:
 - modules/ROOT/nav.adoc
-- modules/module-one/nav.adoc
