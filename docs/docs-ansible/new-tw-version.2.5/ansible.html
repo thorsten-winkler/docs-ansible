@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ansible Ecosystem: Information, Tips, Best Practices :: Antora Docs</title>
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">Antora Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-ansible" data-version="new-tw-version.2.5">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Ansible Docs Repository</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ansible.html">Ansible Ecosystem: Information, Tips, Best Practices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Ansible Docs Repository</span>
+    <span class="version">new-tw-version.2.5-beta.1-tw</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="index.html">Ansible Docs Repository</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">new-tw-version.2.5-beta.1-tw</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="ansible.html" class="home-link is-current"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Ansible Docs Repository</a></li>
+    <li><a href="ansible.html">Ansible Ecosystem: Information, Tips, Best Practices</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/thorsten-winkler/docs-ansible/edit/master/docs/modules/ROOT/pages/ansible.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Ansible Ecosystem: Information, Tips, Best Practices</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_ansible">1. Ansible</a>
+<ul class="sectlevel2">
+<li><a href="#_installation">1.1. Installation</a>
+<ul class="sectlevel3">
+<li><a href="#_global_installation">1.1.1. Global installation</a></li>
+<li><a href="#_local_installation">1.1.2. Local installation</a></li>
+</ul>
+</li>
+<li><a href="#_inventory">1.2. Inventory</a></li>
+<li><a href="#_roles">1.3. Roles</a></li>
+<li><a href="#_plugins">1.4. Plugins</a></li>
+</ul>
+</li>
+<li><a href="#_ansible_galaxy">2. Ansible Galaxy</a>
+<ul class="sectlevel2">
+<li><a href="#_create_new_ansible_role">2.1. Create new ansible role</a></li>
+<li><a href="#_install_multiple_roles_from_a_file">2.2. Install multiple roles from a file</a></li>
+</ul>
+</li>
+<li><a href="#_1_3_molecule_ansible_testing">3. 1.3. Molecule - Ansible Testing</a>
+<ul class="sectlevel2">
+<li><a href="#_installation_via_pip">3.1. Installation via pip</a></li>
+<li><a href="#_create_new_ansible_role_with_molecule">3.2. Create new ansible role with molecule</a></li>
+<li><a href="#_molecule_scenarios">3.3. Molecule Scenarios</a></li>
+</ul>
+</li>
+<li><a href="#_useful_linksinformationdiscussionsquestionsdecisions">4. Useful links/information/discussions/questions/decisions</a></li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_ansible"><a class="anchor" href="#_ansible"></a>1. Ansible</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installation"><a class="anchor" href="#_installation"></a>1.1. Installation</h3>
+<div class="sect3">
+<h4 id="_global_installation"><a class="anchor" href="#_global_installation"></a>1.1.1. Global installation</h4>
+<div class="literalblock">
+<div class="content">
+<pre>$ test</pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Optional Title</div>
+<div class="paragraph">
+<p>Sidebars are used to visually separate auxiliary bits of content
+that supplement the main text.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Test dsad asd sad sa dsa dsa dsa dsa adsa dsa dsa dsad
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Optional Title</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/bash
+# Ansible installation
+pip install ansible
+
+# Ansible upgrade
+pip install --upgrade ansible
+if [[ $UID -eq 1]]
+then
+fi</code></pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. dasda</div>
+<div class="content">
+<div class="paragraph">
+<p><strong>Example</strong> Block</p>
+</div>
+<div class="paragraph">
+<p>Use: examples :)</p>
+</div>
+<div class="paragraph">
+<p>Default caption "Example:"
+can be changed using</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[caption="Custom: "]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>before example block.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_local_installation"><a class="anchor" href="#_local_installation"></a>1.1.2. Local installation</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Example installation in an independent local virtual environment
+python -m venv venv-ansible-installation
+source venv-ansible-installation/bin/activate
+pip install --upgrade pip
+pip install ansible</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inventory"><a class="anchor" href="#_inventory"></a>1.2. Inventory</h3>
+<div class="paragraph">
+<p>List all hosts of playbook/inventory file (default location: /etc/ansible/
+hosts):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-inventory -i hosts --graph
+ansible-inventory -i hosts --list</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_roles"><a class="anchor" href="#_roles"></a>1.3. Roles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Role directory structure</p>
+</li>
+<li>
+<p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html" class="bare">https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html</a></p>
+</li>
+<li>
+<p>Dependencies to other roles defined in</p>
+</li>
+<li>
+<p><code>&lt;path-to-roles&gt;/&lt;role_name&gt;/meta/main.yml</code></p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# cat &lt;path-to-roles&gt;/&lt;role_name&gt;/meta/main.yml:
+- dependencies: []
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>[Create roles with ansible galaxy](#121-create-new-ansible-role)</p>
+</li>
+<li>
+<p>[Create roles with molecule](#132-create-new-ansible-role-with-molecule)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plugins"><a class="anchor" href="#_plugins"></a>1.4. Plugins</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Get list of available plugins:\
+<code>$ ansible-doc -t lookup -l</code></p>
+</li>
+<li>
+<p>List of plugin types (and therefore directory names for development)</p>
+</li>
+<li>
+<p><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html#adding-a-plugin-locally" class="bare">https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html#adding-a-plugin-locally</a></p>
+</li>
+<li>
+<p>Lookup plugins:</p>
+</li>
+<li>
+<p><a href="https://docs.ansible.com/ansible/latest/plugins/lookup.html" class="bare">https://docs.ansible.com/ansible/latest/plugins/lookup.html</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ansible_galaxy"><a class="anchor" href="#_ansible_galaxy"></a>2. Ansible Galaxy</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_create_new_ansible_role"><a class="anchor" href="#_create_new_ansible_role"></a>2.1. Create new ansible role</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://galaxy.ansible.com/docs/contributing/creating_role.html" class="bare">https://galaxy.ansible.com/docs/contributing/creating_role.html</a></p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# ansible-galaxy init --init-path &lt;path-to-roles&gt; &lt;role_name&gt;
+$ ansible-galaxy init --init-path . ar-common
+$ ls -la ./ar-common
+    8 -rw-r--r--  1 user  staff   1,3K 15 Aug 13:13 .travis.yml
+    8 -rw-r--r--  1 user  staff   1,3K 15 Aug 13:13 README.md
+    0 drwxr-xr-x  3 user  staff    96B 15 Aug 13:13 defaults/
+    0 drwxr-xr-x  2 user  staff    64B 15 Aug 13:13 files/
+    0 drwxr-xr-x  3 user  staff    96B 15 Aug 13:13 handlers/
+    0 drwxr-xr-x  3 user  staff    96B 15 Aug 13:13 meta/
+    0 drwxr-xr-x  3 user  staff    96B 15 Aug 13:13 tasks/
+    0 drwxr-xr-x  2 user  staff    64B 15 Aug 13:13 templates/
+    0 drwxr-xr-x  4 user  staff   128B 15 Aug 13:13 tests/
+    0 drwxr-xr-x  3 user  staff    96B 15 Aug 13:13 vars/
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_install_multiple_roles_from_a_file"><a class="anchor" href="#_install_multiple_roles_from_a_file"></a>2.2. Install multiple roles from a file</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://galaxy.ansible.com/docs/using/installing.html#installing-multiple-roles-from-a-file" class="bare">https://galaxy.ansible.com/docs/using/installing.html#installing-multiple-roles-from-a-file</a></p>
+</li>
+<li>
+<p>Create yaml file <code>&lt;requirements.yml&gt;</code></p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+---
+# from Github
+- src: https://github.com/bennojoy/nginx
+# from galaxy
+- src: yatesr.timezone
+...
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the following command</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-galaxy install -r requirements.yml
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_3_molecule_ansible_testing"><a class="anchor" href="#_1_3_molecule_ansible_testing"></a>3. 1.3. Molecule - Ansible Testing</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://molecule.readthedocs.io" class="bare">https://molecule.readthedocs.io</a></p>
+</li>
+<li>
+<p>Keep in mind that Ansible itself says that an extra testing framework isn&#8217;t necessary:
+<a href="https://docs.ansible.com/ansible/latest/reference_appendices/test_strategies.html#conclusion" class="bare">https://docs.ansible.com/ansible/latest/reference_appendices/test_strategies.html#conclusion</a>
+&gt; Ansible believes you should not need another framework to validate basic things of your infrastructure is true. This is the case because Ansible is an order-based system that will fail immediately on unhandled errors for a host, and prevent further configuration of that host. This forces errors to the top and shows them in a summary at the end of the Ansible run.</p>
+<div class="literalblock">
+<div class="content">
+<pre>But due to creating roles for multiple operating systems, I prefer to have the option to test changes immediately on different operating systems. Therefore I want to integrate molecule as often as possible.</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_installation_via_pip"><a class="anchor" href="#_installation_via_pip"></a>3.1. Installation via pip</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://molecule.readthedocs.io/en/latest/installation.html" class="bare">https://molecule.readthedocs.io/en/latest/installation.html</a></p>
+</li>
+<li>
+<p>&gt; It is highly recommended that you install molecule in a virtual environment!</p>
+</li>
+<li>
+<p>Install the following molecule drivers</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+pip install --upgrade setuptools
+pip install "molecule[docker]"
+pip install "molecule[lint]"
+pip install "molecule[podman]"
+# same than
+# pip install "molecule[docker,lint,podman]
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_new_ansible_role_with_molecule"><a class="anchor" href="#_create_new_ansible_role_with_molecule"></a>3.2. Create new ansible role with molecule</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://molecule.readthedocs.io/en/latest/getting-started.html#creating-a-new-role" class="bare">https://molecule.readthedocs.io/en/latest/getting-started.html#creating-a-new-role</a></p>
+</li>
+<li>
+<p>&gt; Molecule uses galaxy under the hood to generate conventional role layouts</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# molecule init role my-new-role --driver-name docker
+$ molecule init role ar-common-molecule --driver-name docker
+$ ls -la ar-common-molecule
+    8 -rw-r--r--  1 thwi  staff   539B Dec 23 12:19 .travis.yml
+    8 -rw-r--r--  1 thwi  staff   598B Dec 23 12:19 .yamllint
+    8 -rw-r--r--  1 thwi  staff   1.3K Dec 23 12:19 README.md
+    0 drwxr-xr-x  3 thwi  staff    96B Dec 23 12:19 defaults/
+    0 drwxr-xr-x  2 thwi  staff    64B Dec 23 12:19 files/
+    0 drwxr-xr-x  3 thwi  staff    96B Dec 23 12:19 handlers/
+    0 drwxr-xr-x  3 thwi  staff    96B Dec 23 12:19 meta/
+    0 drwxr-xr-x  3 thwi  staff    96B Dec 23 12:19 molecule/
+    0 drwxr-xr-x  3 thwi  staff    96B Dec 23 12:19 tasks/
+    0 drwxr-xr-x  2 thwi  staff    64B Dec 23 12:19 templates/
+    0 drwxr-xr-x  4 thwi  staff   128B Dec 23 12:19 tests/
+    0 drwxr-xr-x  3 thwi  staff    96B Dec 23 12:19 vars/
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_molecule_scenarios"><a class="anchor" href="#_molecule_scenarios"></a>3.3. Molecule Scenarios</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://molecule.readthedocs.io/en/latest/getting-started.html#molecule-scenarios" class="bare">https://molecule.readthedocs.io/en/latest/getting-started.html#molecule-scenarios</a></p>
+</li>
+<li>
+<p>Every folder in <code>ar-common-molecule/molecule/&lt;folder&gt;</code> represents a molecule scenario</p>
+</li>
+<li>
+<p>And every scenario contains the following files:</p>
+</li>
+<li>
+<p><code>INSTALL.rst</code>: Info und install instructions</p>
+</li>
+<li>
+<p><code>molecule.yml</code>: Central configuration entrypoint for molecule. Molecule invokes this playbook with <code>ansible-playbook</code> and run it against an instance created by the driver</p>
+</li>
+<li>
+<p><code>verify.yml</code>: is the Ansible file used for testing as Ansible is the default Verifier.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_useful_linksinformationdiscussionsquestionsdecisions"><a class="anchor" href="#_useful_linksinformationdiscussionsquestionsdecisions"></a>4. Useful links/information/discussions/questions/decisions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Turorials:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.informatik-aktuell.de/entwicklung/programmiersprachen/einfuehrung-in-ansible.html" class="bare">https://www.informatik-aktuell.de/entwicklung/programmiersprachen/einfuehrung-in-ansible.html</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Best Practices:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html" class="bare">https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>YAML Syntax:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://yaml.org/refcard.html" class="bare">https://yaml.org/refcard.html</a></p>
+</li>
+<li>
+<p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html" class="bare">https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ansible lookups: vars vs. facts</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html" class="bare">https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>vars_vs_facts.<sup class="footnote" id="_footnote_iwas">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>: <a href="https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html" class="bare">https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html</a></p>
+</li>
+<li>
+<p>vars_vs_facts.<sup class="footnoteref">[<a class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>: <a href="https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html" class="bare">https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist bibliography">
+<ul class="bibliography">
+<li>
+<p><a id="ad"></a>[ansible-docs] Ansible Docs - <a href="https://docs.ansible.com/" class="bare">https://docs.ansible.com/</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ansible Galaxy Docs - <a href="https://galaxy.ansible.com/docs/" class="bare">https://galaxy.ansible.com/docs/</a></p>
+</li>
+<li>
+<p>Ansible Galaxy User Guide - <a href="https://docs.ansible.com/ansible/latest/galaxy/user_guide.html" class="bare">https://docs.ansible.com/ansible/latest/galaxy/user_guide.html</a></p>
+</li>
+<li>
+<p>Molecule - Ansible Testing - <a href="https://molecule.readthedocs.io" class="bare">https://molecule.readthedocs.io</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html" class="bare">https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html</a>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
